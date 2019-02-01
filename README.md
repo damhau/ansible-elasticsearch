@@ -24,7 +24,7 @@ Create your Ansible playbook with your own tasks, and include the role elasticse
 ansible-galaxy install elastic.elasticsearch
 ```
 
-Then create your playbook yaml adding the role elasticsearch. By default, the user is only required to specify a unique es_instance_name per role application.  This should be unique per node. 
+Then create your playbook yaml adding the role elasticsearch. 
 The application of the elasticsearch role results in the installation of a node on a host.
 
 The simplest configuration therefore consists of: 
@@ -34,7 +34,6 @@ The simplest configuration therefore consists of:
   hosts: localhost
   roles:
     - role: elastic.elasticsearch
-      es_instance_name: "node1"
 ```
 
 The above installs a single node 'node1' on the hosts 'localhost'.
@@ -115,7 +114,6 @@ The following illustrates applying configuration parameters to an Elasticsearch 
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_instance_name: "node1"
     es_data_dirs:
       - "/opt/elasticsearch/data"
     es_log_dir: "/opt/elasticsearch/logs"
@@ -155,7 +153,6 @@ A more complex example:
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_instance_name: "node1"
     es_data_dirs:
       - "/opt/elasticsearch/data"
     es_log_dir: "/opt/elasticsearch/logs"
@@ -199,7 +196,6 @@ An example of a two server deployment is shown below.  The first server holds th
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_instance_name: "node1"
     es_heap_size: "1g"
     es_config:
       cluster.name: "test-cluster"
@@ -220,7 +216,6 @@ An example of a two server deployment is shown below.  The first server holds th
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_instance_name: "node1"
     es_data_dirs: 
       - "/opt/elasticsearch"
     es_config:
@@ -243,7 +238,6 @@ An example of a two server deployment is shown below.  The first server holds th
   roles:
     - role: elastic.elasticsearch
   vars:
-    es_instance_name: "node2"
     es_api_port: 9201
     es_config:
       discovery.zen.ping.unicast.hosts: "elastic02:9300"
