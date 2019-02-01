@@ -57,7 +57,7 @@ xpack.graph.enabled: false
 {% endif %}
 {% endif %}
 
-{% if es_xpack_start_trial is defined and es_xpack_license is not defined %}
+{% if es_xpack_start_trial == true %}
 xpack.license.self_generated.type: trial
 {% endif %}
 
