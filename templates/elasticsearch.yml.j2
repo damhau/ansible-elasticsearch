@@ -57,7 +57,9 @@ xpack.graph.enabled: false
 {% endif %}
 {% endif %}
 
+{% if es_xpack_start_trial == true %}
 xpack.license.self_generated.type: trial
+{% endif %}
 
 {% if es_mail_config is defined %}
 xpack.notification.email:

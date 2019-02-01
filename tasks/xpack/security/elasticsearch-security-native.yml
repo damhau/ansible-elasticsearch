@@ -25,7 +25,7 @@
     password: "{{es_api_basic_auth_password}}"
     force_basic_auth: yes
     status_code: 200
-  when: manage_native_users
+  when: es_xpack_start_trial == "true"
 
 
 #List current users
